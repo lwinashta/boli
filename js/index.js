@@ -1,1 +1,0 @@
-const jq=require('jquery');
