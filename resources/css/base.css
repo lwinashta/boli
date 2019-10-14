@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('/node_modules/@fortawesome/fontawesome-free/css/all.css');
+
+/* COMMON CSS */
+body{
+    font-family: 'Roboto', sans-serif;
+}
+#app-header{
+    position: fixed;
+    top:0px;
+    right:0px;
+    left:0px;
+    z-index:99;
+    background-color: white;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.12), inset 0 -1px 0 0 #dadce0;
+}
+
+.inline{
+    display: inline-block;
+}
+
+#app-header-left{
+    padding: 10px;
+}
+
+#app-header-right{
+    float: right;
+}
+
+#app-header-logo-txt{
+    font-size: 2em;
+}
+
+.click-icon,.btn{
+    cursor: pointer;
+}
+
+.pad-10{
+    padding: 10px;
+}
+
+.pad-5{
+    padding: 5px;
+}
+
+.bor-sm-grey{
+    border: 1px solid lightgrey;
+}
+
+.bor-sm-ro{
+    border-radius: 5px;
+}
+
+a.no-decor{
+    text-decoration: none;
+}

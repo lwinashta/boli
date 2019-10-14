@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Boli - Login</title>
+    <% include ../partials/load-common-scrips %>
+</head>
+
+<body style="background-color: whitesmoke;">
+
+    <!-- via EJS: header -->
+    <% include ../partials/header-logo %>
+
+    <div id="app-body" style="margin-top:20px;">
+        <div class="pad-10 bor-sm-grey bor-sm-ro" style="width:40%;margin:auto;background-color: white;">
+            <form id="login-form" onsubmit="return false;">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input class="form-control" type="text" placeholder="username" data-required='1'>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input class="form-control" type="password" placeholder="password" data-required='1'>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Login</button>
+                </div>
+            </form>
+            <hr/>
+            <div class="text-center">
+                <div class="btn btn-dark"><i class="fab fa-facebook-f"></i>  Facebook</div>
+                <div class="btn btn-warning pull-right" style="margin-left:20px;"><i class="fab fa-google"></i>  Google</div>
+            </div>
+            <hr/>
+            <div class="text-center">
+                <b>New to Boli?</b>
+                <button class="btn btn-success">Sign up</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src='/resources/js/login.js'></script>
+
+</body>
+
+</html>
