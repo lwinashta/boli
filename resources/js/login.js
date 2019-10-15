@@ -1,8 +1,17 @@
-// import {form} from '../modules/form';
-// const jq=require('jquery')
+let form=document.getElementById('login-form');
+form.onsubmit = (e) => {
+    e.preventDefault();
 
-// form.form=
-// form.submit();
+    let data=$(form).serialize();
+  
+    $.ajax({
+        "url":"/login/authenticate",
+        "type":"POST",
+        "data":data,
+        "async":true,
+        "success":function(f){
+            console.log(f);
+        }
+    });
 
-var person = require('../modules/form');
-console.log(person.firstName + ' ' + person.lastName);
+};
