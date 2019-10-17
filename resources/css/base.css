@@ -31,6 +31,10 @@ label{
     text-transform: uppercase;
 }
 
+.form-box{
+    width:40%;margin:auto;background-color: white;
+}
+
 #app-header{
     position: fixed;
     top:0px;
@@ -39,6 +43,13 @@ label{
     z-index:99;
     background-color: white;
     box-shadow: 0 2px 6px 0 rgba(0,0,0,.12), inset 0 -1px 0 0 #dadce0;
+}
+
+.top-logo-container{
+    text-align: center;
+    width: 98%;
+    margin: 0 auto;
+    border-bottom: 1px solid lightgrey;
 }
 
 .inline{
@@ -83,5 +94,15 @@ label{
 
 a.no-decor{
     text-decoration: none;
+    color: inherit;
 }
 
+a.no-decor:hover{
+    color:inherit;
+    text-decoration: inherit;
+}
+
+#header-user-info{
+    position: relative;
+    
+}

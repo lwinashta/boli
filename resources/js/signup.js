@@ -14,9 +14,10 @@ form.onsubmit = (e) => {
             "data": data,
             "async": true,
             "success": function (f) {
-                console.log(f);
+                window.location.assign('/signup-complete');
 
-            },error:function(xhr,state,err){
+            },
+            "error":function(xhr,state,err){
                 if(xhr.status===403 && xhr.responseText==="duplicate user"){
                     $(form).find('input[type="email"][name="emailid"]')
                         .closest('.form-group')

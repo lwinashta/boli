@@ -1,0 +1,15 @@
+#unauth-msg-outer{
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+    font-size: 13px;
+    display: none;
+}
+
+#unauth-msg-inner {
+    padding: 10px;
+    color: white;
+    background-color: crimson;
+    margin: 10px;
+    display: inline-block;
+}

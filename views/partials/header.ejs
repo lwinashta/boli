@@ -6,9 +6,16 @@
         </div>
 
         <div class="pad-10 inline" id="app-header-right" style="margin-top: 5px;">
-            <a class="no-decor" href="/login">
-                <div class="btn btn-primary click-icon">Login</div>
-            </a>
+            <% if (typeof userinfo!=="undefined" && Object.keys(userinfo).length>0) { %>
+                <div id="header-user-info" style="">
+
+                </div>
+                <img src="/resources/images/no-profile-img.jpg">
+            <% } else { %>
+                <a class="no-decor" href="/login">
+                    <div class="btn btn-primary click-icon">Login</div>
+                </a>
+            <% } %>
         </div>
 
     </div>

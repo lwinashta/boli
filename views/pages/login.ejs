@@ -13,19 +13,29 @@
 
     <div id="app-body" style="margin-top:20px;">
         <div class="pad-10 bor-sm-grey bor-sm-ro" style="width:40%;margin:auto;background-color: white;">
+            <div id="unauth-msg-outer">
+                <div id="unauth-msg-inner">
+                    Username and password incorrect
+                </div>
+            </div>
             <form id="login-form">
                 <div class="form-group">
-                    <label>Username</label>
-                    <input class="form-control" type="text" name="Username" placeholder="username" data-required='1'>
+                    <label>Email id</label>
+                    <input class="form-control" type="text" name="emailid" placeholder="email id" data-required='1'>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input class="form-control" type="password" name="Password" placeholder="password" data-required='1'>
+                    <input class="form-control" type="password" name="password" placeholder="password" data-required='1'>
                 </div>
                 <div class="form-group text-center">
                     <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Login</button>
                 </div>
             </form>
+            <div style="margin-top:10px;text-align: center">
+                <a href="/password-reset">
+                    <div class="btn btn-link" style="font-size: 13px;">Forgot your password?</div>
+                </a>
+            </div>
             <hr/>
             <div class="text-center">
                 <div class="btn btn-dark"><i class="fab fa-facebook-f"></i>  Facebook</div>
@@ -39,6 +49,7 @@
         </div>
     </div>
 
+    <link rel="stylesheet" type="text/css" href="/resources/css/login.css">
     <script type="text/javascript" src='/resources/js/login.js'></script>
 
 </body>
