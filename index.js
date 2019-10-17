@@ -48,9 +48,13 @@ app.get('/signup',(req,res)=>{
 
 app.post('/signup/new',(req,res)=>{
     userManagement.signup(req.fields).then(function(data){
+        console.log(data);
         res.send(data);
+        
     }).catch((err)=>{
-        res.status(500);
+        if(err==="duplicate user"){
+            res.status(403);
+        }
         res.send(err);
     });
 });

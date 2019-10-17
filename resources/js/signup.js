@@ -15,8 +15,15 @@ form.onsubmit = (e) => {
             "async": true,
             "success": function (f) {
                 console.log(f);
+
+            },error:function(xhr,state,err){
+                if(xhr.status===403 && xhr.responseText==="duplicate user"){
+                    $(form).find('input[type="email"][name="emailid"]')
+                        .closest('.form-group')
+                        .append('<div class="req-err-msg">User with entered email address already exists</div>');
+                }
             }
-        });
+        }); 
     }
 
 
