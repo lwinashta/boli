@@ -8,8 +8,8 @@ const path = require('path');
 const formidable = require('express-formidable');
 const express = require('express');
 
+const userManagement=require('./resources/modules/user.mgmt')
 const form=require('./resources/modules/form');
-const db=require('./resources/modules/connect');
 
 const app = express();
 const port=8080;
@@ -33,11 +33,26 @@ app.get('/login',(req,res)=>{
 });
 
 app.post('/login/authenticate',(req,res)=>{
-    //console.log(req);
-    let c=new db();
-    c.connect();
-    res.send(req.fields);
-    console.log("validation triggerred");
+    //res.send(req.fields);
+    userManagement.authenticate(req.fields).then(function(data){
+        res.send(data);
+    }).catch((err)=>{
+        res.status(401);
+        res.send("unAuthorized");
+    });
+});
+
+app.get('/signup',(req,res)=>{
+    res.render('pages/signup');
+});
+
+app.post('/signup/new',(req,res)=>{
+    userManagement.signup(req.fields).then(function(data){
+        res.send(data);
+    }).catch((err)=>{
+        res.status(500);
+        res.send(err);
+    });
 });
 
 app.listen(port,()=>console.log(`listening on port ${port}!`));

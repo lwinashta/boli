@@ -6,6 +6,31 @@
 body{
     font-family: 'Roboto', sans-serif;
 }
+label{
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* form controls */
+.form-group input{
+    font-size: 13px;
+}
+.control-description{
+    color:grey;
+    font-size: 12px;
+    margin-top:5px;
+}
+
+.req-err-msg{
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    /* display: inline-block; */
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 #app-header{
     position: fixed;
     top:0px;
@@ -18,6 +43,10 @@ body{
 
 .inline{
     display: inline-block;
+}
+
+.v-top{
+    vertical-align: top;
 }
 
 #app-header-left{
@@ -55,3 +84,4 @@ body{
 a.no-decor{
     text-decoration: none;
 }
+
