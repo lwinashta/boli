@@ -1,6 +1,11 @@
 
 const db = require('./connect');
 const crypto = require('crypto');
+const fs=require('fs');
+const util=require('util');
+
+const writeFile=util.promisify(fs.writeFile);
+
 const userManagement = {};
 
 (function () {
@@ -54,21 +59,21 @@ const userManagement = {};
     };
 
     this.signup = function (values) {
-
+        let userInfo={};
         return new Promise((resolve, reject) => {
 
             let self = this;
             let passw=self.generateCryptoPasswString(values.password);
 
-            this.connect.then(function (data) {
+            this.connect.then(function (d1) {
                 //authenticate user
                 return self.checkUserExist(values);
 
-            }).then(function (data) {
+            }).then(function (d2) {
                 return self.sysDb.getLastId("system.user");
 
-            }).then(function (data) {
-                let profileid = self.getNewProfileId(data.results);
+            }).then(function (d3) {
+                let profileid = self.getNewProfileId(d3.results);
                 
                 let query = `Insert into 
                     system.user
@@ -81,8 +86,20 @@ const userManagement = {};
 
                 return self.sysDb.exec(query);
 
-            }).then(function (data) {
-                resolve(data);
+            }).then(function (d4) {
+                //console.log(d4);
+                return self.getUserInfo(`pk='${d4.results.insertId}'`);
+                
+            }).then(function(d5){
+                userInfo=d5;
+                
+                //create the file for the user config
+                let filePath=`./data/${d5.results[0].profileid}.json`;
+                return self.createConfigFile(filePath,JSON.stringify({userInfo:userInfo.results[0]}));
+
+            }).then(function(d6){
+                console.log("file created");
+                resolve(userInfo);
 
             }).catch(function (err) {
                 console.log(err);
@@ -117,14 +134,14 @@ const userManagement = {};
         });
     };
 
-    this.getUserByprofileId=function(profileid){
+    this.getUserInfo=function(q){
         return new Promise((resolve, reject)=>{
             let self = this;
             this.connect.then(function (data) {
                 //get user
                 let query=`Select ${self.userfields}  
-                    from system.user where profileid='${profileid}'`;
-
+                    from system.user where ${q}`;
+                //console.log(query);
                 return self.sysDb.exec(query);
 
             }).then(function (data) {
@@ -139,6 +156,10 @@ const userManagement = {};
             });
         });
     }
+
+    this.createConfigFile=(filePath,data)=>{
+        return writeFile(filePath,data);
+    };
 
 }).apply(userManagement);
 

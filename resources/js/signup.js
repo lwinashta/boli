@@ -15,7 +15,6 @@ form.onsubmit = (e) => {
             "async": true,
             "success": function (f) {
                 window.location.assign('/signup-complete');
-
             },
             "error":function(xhr,state,err){
                 if(xhr.status===403 && xhr.responseText==="duplicate user"){

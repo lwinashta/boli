@@ -11,9 +11,11 @@
     <!-- via EJS: header -->
     <% include ../partials/header %>
 
-    <div id="app-body">
+    <div id="app-body" style="margin-top:80px;" user="<%=userinfo.profileid%>">
+        <div class="container"></div>
     </div>
 
+    <link rel="stylesheet" type="text/css" href="/resources/css/profile.css">
     <script type="text/javascript" src='/resources/js/profile.js'></script>
 
 </body>

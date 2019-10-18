@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Boli - Profile</title>
+    <% include ../partials/load-common-scrips %>
+</head>
+
+<body style="background-color: whitesmoke;">
+
+    <!-- via EJS: header -->
+    <% include ../partials/header %>
+
+    <div id="app-body" style="margin-top:80px;">
+        <div class="container">
+            <section class="config-step-content" id="user-config-step-1" step='1'>
+                <section>
+                    <h2>I speak</h2>
+                    <section id="i-speak-languages-container"></section>
+                </section>
+
+                <section id="i-want-learn-outer-container" style="display: none;">
+                    <hr />
+                    <h2>I want to learn</h2>
+                    <section id="i-want-learn-language-container"></section>
+                </section>
+
+                <section class="user-config-next-step-button" style="display: none;">
+                    <hr />
+                    <div class="btn btn-primary"><i class="fas fa-arrow-right"></i> Next</div>
+                </section>
+
+            </section>
+
+            <section class="config-step-content" id="user-config-step-2" step='2'>
+                <section>
+                    <h2>Want learn <i id="selected-want-to-learn-language"></i></h2>
+                    <section id="reason-want-to-learn">
+                        <div class="inline reason-to-learn-col pad-10 bor-sm-grey bor-sm-ro">
+                            <div class="reason-icon"><i class="fas fa-plane"></i></div>
+                            <div class="reason-name"><b>Travel</b></div>
+                        </div>
+                        <div class="inline reason-to-learn-col pad-10 bor-sm-grey bor-sm-ro">
+                            <div class="reason-icon"><i class="fas fa-mortar-pestle"></i></div>
+                            <div class="reason-name"><b>Cultural</b></div>
+                        </div>
+                        <div class="inline reason-to-learn-col pad-10 bor-sm-grey bor-sm-ro">
+                            <div class="reason-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <div class="reason-name"><b>School</b></div>
+                        </div>
+                    </section>
+                </section>
+
+                <section class="user-config-next-step-button" style="display: none;">
+                    <hr />
+                    <div class="btn btn-primary"><i class="fas fa-arrow-right"></i> Next</div>
+                </section>
+
+            </section>
+
+        </div>
+    </div>
+
+    <link rel="stylesheet" type="text/css" href="/resources/css/user.config.css">
+    <script type="text/javascript" src='/resources/js/user.config.js'></script>
+
+</body>
+
+</html>

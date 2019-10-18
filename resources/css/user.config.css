@@ -1,0 +1,57 @@
+.config-step-content{
+    display: none;
+}
+
+.languages-col,
+.reason-to-learn-col{
+    margin-left:20px;
+    border: 1px solid lightgrey;
+    vertical-align: top;
+    background-color: white;
+    position: relative;
+}
+
+.languages-col:first-child,
+.reason-to-learn-col:first-child{
+    margin-left:0px;
+}
+
+.languages-col:hover,
+.reason-to-learn-col:hover{
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.language-icon{
+    text-align: center;
+    padding:10px;
+    width: 110px;
+    height: 110px;
+}
+
+.language-icon img{
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+.reason-to-learn-col{
+    padding:10px;
+    text-align: center;
+}
+
+.reason-to-learn-col .reason-icon i{
+    font-size: 3em;
+}
+
+.selected-icon{
+    position: absolute;
+    top: -10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(41, 128, 0);
+    color: white;
+    right: -10px;
+    text-align: center;
+    line-height: 30px;
+}

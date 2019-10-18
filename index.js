@@ -19,6 +19,8 @@ app.set('view engine', 'ejs');
 app.use('/resources',express.static('resources'));
 app.use('/node_modules',express.static('node_modules'));
 app.use('/meta',express.static('meta'));
+app.use('/data',express.static('data'));
+
 app.use(formidable());
 app.use(cookie());
 
@@ -35,9 +37,9 @@ app.use(function(req, res, next){
 
     //check if cookie exists 
     if("userProfileId" in req.cookies && req.cookies.userProfileId.length>0){
-        userManagement.getUserByprofileId(req.cookies.userProfileId).then(function(data){
+        let q=`profileid='${req.cookies.userProfileId}'`;
+        userManagement.getUserInfo(q).then(function(data){
             let userinfo=data.results[0];
-            //console.log(userinfo);
             app.locals.userinfo=userinfo;
             next();
         }).catch(function(err){
@@ -45,6 +47,24 @@ app.use(function(req, res, next){
         });
     }else{
         notLogged();
+    }
+});
+
+app.use('/user',function(req, res, next){
+    //check if cookie exists 
+    if("userProfileId" in req.cookies && req.cookies.userProfileId.length>0){
+        let q=`profileid='${req.cookies.userProfileId}'`;
+        userManagement.getUserInfo(q).then(function(data){
+            let userinfo=data.results[0];
+            app.locals.userinfo=userinfo;
+            next();
+        }).catch(function(err){
+            //if user no logged - redirect to login page
+            res.redirect('/login');
+        });
+    }else{
+        //if user no logged - redirect to login page
+        res.redirect('/login');
     }
 });
 
@@ -57,7 +77,7 @@ app.get('/login',(req,res)=>{
     if(!("userProfileId" in req.cookies)){
         res.render('pages/login');
     }else{
-        res.redirect('/profile');
+        res.redirect('/user/profile');
     }
     //res.sendFile(path.join(__dirname+'/partials/login.html')); 
 });
@@ -95,15 +115,32 @@ app.get('/signup-complete',(req,res)=>{
     res.render('pages/signup-complete');
 });
 
-app.get('/profile',(req,res)=>{
-    //get user info from the profile id and then pass that info to the page
-    //if userprofileid doesnt exists in the cookie - go to login page 
-    if(!("userProfileId" in req.cookies)){
-        res.status(401);
-        res.redirect('/login');
-    }else{
-        res.render('pages/profile');
-    }
+app.get('/user/profile',(req,res)=>{
+    res.render('pages/profile');
+});
+
+app.get('/user/user-config',(req,res)=>{
+    //check if language selection is done 
+    res.render('pages/user-config');
+});
+
+app.get('/user/sign-out',(req,res)=>{
+    res.clearCookie("userProfileId");
+    res.redirect('/login');
+});
+
+app.post("/user/create/user-config-file",(req,res)=>{
+    //create new file with user info
+    let filePath=`./data/${req.fields.profileid}.json`; 
+    userManagement.createConfigFile(filePath,JSON.stringify({userInfo:app.locals.userinfo}))
+    .then(function(d){
+        res.send("file created");
+    })
+    .catch(function(err){
+        console.log(err);
+        res.status(404);
+        res.send("Error in creating file");
+    });
 });
 
 app.listen(port,()=>console.log(`listening on port ${port}!`));

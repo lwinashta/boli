@@ -23,6 +23,10 @@ a.no-decor:hover{
     cursor: pointer;
 }
 
+section{
+    margin:20px 0;
+}
+
 /* FORM CONTROLS */
 .form-group input{
     font-size: 13px;

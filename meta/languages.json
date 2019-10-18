@@ -1,7 +1,7 @@
 [
     {
         "language":"Hindi",
-        "icon":"",
+        "icon":"/resources/images/indian-flag.png",
         "learn":[
             "Burmese",
             "English"
@@ -9,7 +9,7 @@
     },
     {
         "language":"Burmese",
-        "icon":"",
+        "icon":"/resources/images/myanmar-flag.png",
         "learn":[
             "Hindi",
             "English"
@@ -17,7 +17,7 @@
     },
     {
         "language":"English",
-        "icon":"",
+        "icon":"/resources/images/usa-flag.png",
         "learn":[
             "Hindi",
             "Burmese"

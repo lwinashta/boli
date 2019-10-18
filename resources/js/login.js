@@ -15,7 +15,7 @@ form.onsubmit = (e) => {
             "success": function (f) {
                 console.log(f);
                 if(f==="authorized"){
-                    window.location.assign('/profile');
+                    window.location.assign('/user/profile');
                 }
             },
             "error": function (xhr, state, err) {
