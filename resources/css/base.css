@@ -12,7 +12,18 @@ label{
     text-transform: uppercase;
 }
 
-/* form controls */
+a.no-decor{
+    text-decoration: none;
+    color: inherit;
+}
+
+a.no-decor:hover{
+    color:inherit;
+    text-decoration: inherit;
+    cursor: pointer;
+}
+
+/* FORM CONTROLS */
 .form-group input{
     font-size: 13px;
 }
@@ -21,7 +32,6 @@ label{
     font-size: 12px;
     margin-top:5px;
 }
-
 .req-err-msg{
     color: red;
     font-size: 12px;
@@ -30,7 +40,6 @@ label{
     font-weight: bold;
     text-transform: uppercase;
 }
-
 .form-box{
     width:40%;margin:auto;background-color: white;
 }
@@ -52,6 +61,7 @@ label{
     border-bottom: 1px solid lightgrey;
 }
 
+/* CUSTOM CLASSES */
 .inline{
     display: inline-block;
 }
@@ -60,19 +70,8 @@ label{
     vertical-align: top;
 }
 
-#app-header-left{
-    padding: 10px;
-}
-
-#app-header-right{
-    float: right;
-}
-
-#app-header-logo-txt{
-    font-size: 2em;
-}
-
-.click-icon,.btn{
+.click-icon,
+.btn{
     cursor: pointer;
 }
 
@@ -92,17 +91,58 @@ label{
     border-radius: 5px;
 }
 
-a.no-decor{
-    text-decoration: none;
-    color: inherit;
+/* APP HEADER LEFT SIDE */
+#app-header-left{
+    padding: 10px;
 }
 
-a.no-decor:hover{
-    color:inherit;
-    text-decoration: inherit;
+/* APP HEADER RIGHT SIDE */
+#app-header-right{
+    float: right;
 }
 
+#app-header-logo-txt{
+    font-size: 2em;
+}
+
+
+/* HEADER - USER INFO */
 #header-user-info{
     position: relative;
     
+}
+
+#header-user-img-container{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#header-user-img-container img{
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+#header-user-img-container:hover{
+    border: 1px solid lightgrey;
+}
+
+#header-user-details{
+    position: absolute;
+    top: 50px;
+    width: 300px;
+    height: auto;
+    background-color: white;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    right: 0;
+    display: none;
+}
+
+#header-user-details-profile-img img{
+    width:80px;
+    height:80px;
+    border-radius: 50%;
+    cursor: pointer;
 }

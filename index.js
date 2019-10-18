@@ -10,7 +10,6 @@ const formidable = require('express-formidable');
 const express = require('express');
 
 const userManagement=require('./resources/modules/user.mgmt')
-const form=require('./resources/modules/form');
 
 const app = express();
 const port=8080;
@@ -19,10 +18,12 @@ app.set('view engine', 'ejs');
 
 app.use('/resources',express.static('resources'));
 app.use('/node_modules',express.static('node_modules'));
-//app.use(express.urlencoded({extended:true}));
-//app.use(express.json());
+app.use('/meta',express.static('meta'));
 app.use(formidable());
 app.use(cookie());
+
+//app.use(express.urlencoded({extended:true}));
+//app.use(express.json());
 
 //check user info for each page
 app.use(function(req, res, next){

@@ -2,15 +2,43 @@
     <div style="width:95%;margin: 0 auto;">
 
         <div class="pad-10 inline" id="app-header-left">
-            <div id="app-header-logo-txt">Boli</div>
+            <a class="no-decor" href="/"><div id="app-header-logo-txt">Boli</div></a>
         </div>
 
         <div class="pad-10 inline" id="app-header-right" style="margin-top: 5px;">
             <% if (typeof userinfo!=="undefined" && Object.keys(userinfo).length>0) { %>
-                <div id="header-user-info" style="">
-
+                <div id="header-user-info" class="hide-off-focus-container" 
+                    title='<%=userinfo.firstname+" "+userinfo.lastname%>'>
+                    <div id="header-user-img-container">
+                        <img src="/resources/images/no-profile-img.jpg">
+                    </div>
+                    <div id="header-user-details" class="hide-this-container">
+                        <div class="pad-10">
+                            <div id="header-user-details-profile-img" class="inline v-mid">
+                                <img src="/resources/images/no-profile-img.jpg">
+                            </div>
+                            <div class="inline v-mid" style="margin-left:10px;">
+                                <div style="font-size: 13px;">
+                                    <label style="margin-bottom:0px;"><%=userinfo.firstname+" "+userinfo.lastname%></label>
+                                    <div style="color:grey;"><%=userinfo.emailid%></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pad-10  click-icon" style="border-top:1px solid lightgrey">
+                            <a class="no-decor" href="/profile">
+                                <i class="fas fa-user"></i> 
+                                <label style="margin:0 10px;cursor: pointer;">Profile</label>
+                            </a>
+                        </div>
+                        <div class="pad-10" style="border-top:1px solid lightgrey">
+                            <div class="text-center">
+                                <a href="/signout">
+                                    <div class="btn btn-primary"><label style="margin-bottom:0px;cursor: pointer;">Sign out</label></div>
+                                </a>
+                            </div>           
+                        </div>
+                    </div>
                 </div>
-                <img src="/resources/images/no-profile-img.jpg">
             <% } else { %>
                 <a class="no-decor" href="/login">
                     <div class="btn btn-primary click-icon">Login</div>

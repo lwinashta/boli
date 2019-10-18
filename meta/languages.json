@@ -1,0 +1,26 @@
+[
+    {
+        "language":"Hindi",
+        "icon":"",
+        "learn":[
+            "Burmese",
+            "English"
+        ]
+    },
+    {
+        "language":"Burmese",
+        "icon":"",
+        "learn":[
+            "Hindi",
+            "English"
+        ]
+    },
+    {
+        "language":"English",
+        "icon":"",
+        "learn":[
+            "Hindi",
+            "Burmese"
+        ]
+    }
+]
