@@ -14,7 +14,7 @@
     "bootstrap": "^4.3.1",
     "cookie-parser": "^1.4.4",
     "ejs": "^2.7.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-formidable": "^1.2.0",
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
